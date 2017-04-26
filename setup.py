@@ -6,5 +6,5 @@ setup(name='pyflags',
       url='https://github.com/razorheadfx/pyflags',
       author='razorheadfx',
       license='MIT',
-      packages=['pyflags'],
+      py_modules=['pyflags'],
       zip_safe=False)
