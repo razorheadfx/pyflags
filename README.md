@@ -13,10 +13,10 @@ f = Flags()
 f.simple("-n", func = lambda args : int(args[0])) # convert the arg after the flag to int
 f.flag("-datetime", argcount = 2, func = lambda args : dateutil.parser.parse("%s %s" %(args[0],args[1])) # returns the 2 consecutive args parsed as datetime
 f.boolean("-bool") # returns true if in the given args, false if absent 
-f.flag("--collect", argcount = 2) # returns the 2 consecutive args parsed as datetime
+f.flag("--collect", argcount = 2) # returns the 2 consecutive args as a list
 
 vals = f.parse_all(args) #returns a dict of all the parse args, None if absent for non-boolean flags
-#or parse sys.argv via f.parse_sysargs() excluding the scriptname
+#or parse sys.argv via f.parse_sysargs()
 
 originals = f.original_args
 leftovers = f.leftover_args
@@ -28,4 +28,5 @@ leftovers = f.leftover_args
   
   
 TODO:  
-- [ ] build parser for positionals  
+- [ ] build parser for positionals
+- assign the values to variables declared beforehand (goflag's default behaviour)
